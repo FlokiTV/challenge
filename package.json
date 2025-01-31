@@ -1,31 +1,19 @@
 {
   "name": "challenge",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd front-end && npm run preview\" \"cd back-end && npm run start\"",
+    "dev": "concurrently \"cd front-end && npm run dev\" \"cd back-end && npm run start:dev\"",
+    "preinstall": "cd front-end && npm i && cd ../back-end && npm i",
+    "build": "cd front-end && npm run build && cd ../back-end && npm run build"
   },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^4.0.1"
-  },
+  "keywords": [],
+  "author": "FlokiTV",
+  "license": "MIT",
+  "description": "Simple full-stack tasks",
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^9.17.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
-    "globals": "^15.14.0",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "concurrently": "^9.1.2"
   }
 }
